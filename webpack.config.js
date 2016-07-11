@@ -9,7 +9,7 @@ module.exports = {
     './source/index.tsx'
   ],
   output: {
-    filename: 'bundle.js',
+    filename: 'development.js',
     publicPath: 'http://0.0.0.0:8080/'
   },
   devServer: {
@@ -39,6 +39,11 @@ module.exports = {
           'babel',
           'ts'
         ]
+      },
+      {
+        test: /\.(jpg|jpeg|gif|png)$/,
+        exclude: /(node_modules)/,
+        loader:'url?limit=2048&name=images/[name].[ext]'
       }
     ]
   },

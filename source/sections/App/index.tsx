@@ -13,6 +13,7 @@ export class App extends React.Component<AppProps, {}> {
     return (
       <div className={styles.cssModuleTest}>
         <h1>Hello from {this.props.compiler} and {this.props.framework}!</h1>
+        <div className={styles.imageTest}></div>
       </div>
      );
   }

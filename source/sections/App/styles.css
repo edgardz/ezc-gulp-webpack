@@ -6,3 +6,10 @@
     content: 'sass like sintax test';
   }
 }
+
+.imageTest {
+  background: url(../../assets/images/webpack.png);
+  width: 400px;
+  height: 400px;
+  display: block;
+}

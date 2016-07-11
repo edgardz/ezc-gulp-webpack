@@ -39,6 +39,11 @@ module.exports = {
           'babel',
           'ts-loader'
         ]
+      },
+      {
+        test: /\.(jpg|jpeg|gif|png)$/,
+        exclude: /(node_modules)/,
+        loader:'url?limit=2048&name=images/[hash].[ext]'
       }
     ]
   },
