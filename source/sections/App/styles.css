@@ -1,0 +1,8 @@
+
+.cssModuleTest {
+  transform: translateX(100px);
+
+  &:after {
+    content: 'sass like sintax test';
+  }
+}

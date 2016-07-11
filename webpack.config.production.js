@@ -1,6 +1,8 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -8,7 +10,7 @@ module.exports = {
   ],
   output: {
     path: __dirname + '/build',
-    filename: 'bundle.js'
+    filename: '[name].[chunkhash].js'
   },
   devtool: 'cheap-module-source-map',
   module: {
@@ -26,6 +28,11 @@ module.exports = {
         loader: 'html'
       },
       {
+        test: /\.css$/,
+        exclude: /(node_modules)/,
+        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1!postcss'),
+      },
+      {
         test: /\.tsx?$/,
         exclude: /(node_modules)/,
         loaders: [
@@ -33,6 +40,13 @@ module.exports = {
           'ts-loader'
         ]
       }
+    ]
+  },
+  postcss: function (webpack) {
+    return [
+      require('postcss-import')({addDependencyTo: webpack}),
+      require('precss')(),
+      require('autoprefixer')()
     ]
   },
   resolve: {
@@ -44,6 +58,11 @@ module.exports = {
         'NODE_ENV': JSON.stringify('production')
       }
     }),
+    new CleanWebpackPlugin([__dirname + '/build'], {
+      root: process.cwd()
+    }),
+    new webpack.optimize.UglifyJsPlugin({ output: {comments: false} }),
+    new ExtractTextPlugin('[name].[chunkhash].css'),
     new HtmlWebpackPlugin({
       template: './source/index.html'
     })

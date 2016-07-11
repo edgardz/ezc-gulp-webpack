@@ -1,5 +1,5 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -29,6 +29,10 @@ module.exports = {
         loader: 'html'
       },
       {
+        test: /\.css$/,
+        loader: "style!css?sourceMap&modules&importLoaders=1&localIdentName=[folder]_[local]_[hash:base64:5]!postcss"
+      },
+      {
         test: /\.tsx?$/,
         exclude: /(node_modules)/,
         loaders: [
@@ -36,6 +40,13 @@ module.exports = {
           'ts'
         ]
       }
+    ]
+  },
+  postcss: function (webpack) {
+    return [
+      require('postcss-import')({addDependencyTo: webpack}),
+      require('precss')(),
+      require('autoprefixer')()
     ]
   },
   resolve: {
