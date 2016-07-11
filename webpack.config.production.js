@@ -4,24 +4,21 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: [
-    'webpack-dev-server/client?http://0.0.0.0:8080',
-    'webpack/hot/only-dev-server',
     './source/index.tsx'
   ],
   output: {
-    filename: 'bundle.js',
-    publicPath: 'http://0.0.0.0:8080/'
+    path: __dirname + '/build',
+    filename: 'bundle.js'
   },
-  devServer: {
-    historyApiFallback: true,
-    hot: true,
-    inline: true,
-    stats: 'errors-only',
-    host: '0.0.0.0',
-    port: '8080'
-  },
-  devtool: 'source-map',
+  devtool: 'cheap-module-source-map',
   module: {
+    preLoaders: [
+      {
+        test: /\.tsx?$/,
+        exclude: /(node_modules)/,
+        loader: 'source-map'
+      }
+    ],
     loaders: [
       {
         test: /\.html$/,
@@ -33,7 +30,7 @@ module.exports = {
         exclude: /(node_modules)/,
         loaders: [
           'babel',
-          'ts'
+          'ts-loader'
         ]
       }
     ]
@@ -42,11 +39,13 @@ module.exports = {
     extensions: ['', '.webpack.js', '.web.js', '.js', '.ts', '.tsx']
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
     new HtmlWebpackPlugin({
       template: './source/index.html'
-    }),
-    new webpack.HotModuleReplacementPlugin({
-      multiStep: true
     })
-  ]
+  ],
 };

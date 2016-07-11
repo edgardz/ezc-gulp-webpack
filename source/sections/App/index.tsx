@@ -1,9 +1,13 @@
-import * as React from 'react';
+import * as React from "react";
 
-export interface AppProps { compiler: string; framework: string; }
+export interface AppProps {
+  compiler: string;
+  framework: string;
+}
 
 export class App extends React.Component<AppProps, {}> {
   render() {
+    console.log('sourcemap test');
     return <h1>Hello from {this.props.compiler} and {this.props.framework}!</h1>;
   }
 }

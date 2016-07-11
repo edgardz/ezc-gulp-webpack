@@ -1,9 +1,9 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 
-import { App } from "./sections/App";
+import { App } from './sections/App';
 
 ReactDOM.render(
-    <App compiler="TypeScript" framework="React" />,
-    document.getElementById("app")
+  <App compiler='TypeScript' framework='React' />,
+  document.getElementById('app')
 );
