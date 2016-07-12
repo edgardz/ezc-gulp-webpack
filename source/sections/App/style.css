@@ -1,0 +1,25 @@
+
+@import '../../styles/utils/variables.css';
+@import '../../styles/utils/retina.css';
+
+.moduleTest {
+  font-family: $font-black;
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  :global {
+    .imageTest {
+      @mixin retina-image '../../assets/images/webpack.png';
+    }
+  }
+}
+
+.inlineImageTest {
+  background: url(../../assets/images/typescript.jpg);
+  width: 61px;
+  height: 61px;
+  display: block;
+}
+

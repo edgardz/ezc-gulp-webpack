@@ -44,6 +44,31 @@ module.exports = {
         test: /\.(jpg|jpeg|gif|png)$/,
         exclude: /(node_modules)/,
         loader:'url?limit=2048&name=images/[name].[ext]'
+      },
+      {
+        test: /\.svg$/,
+        exclude: /(node_modules)/,
+        loader: 'url?limit=65000&mimetype=image/svg+xml&name=fonts/[name].[ext]'
+      },
+      {
+        test: /\.woff$/,
+        exclude: /(node_modules)/,
+        loader: 'url?limit=65000&mimetype=application/font-woff&name=fonts/[name].[ext]'
+      },
+      {
+        test: /\.woff2$/,
+        exclude: /(node_modules)/,
+        loader: 'url?limit=65000&mimetype=application/font-woff2&name=fonts/[name].[ext]'
+      },
+      {
+        test: /\.[ot]tf$/,
+        exclude: /(node_modules)/,
+        loader: 'url?limit=65000&mimetype=application/octet-stream&name=fonts/[name].[ext]'
+      },
+      {
+        test: /\.eot$/,
+        exclude: /(node_modules)/,
+        loader: 'url?limit=65000&mimetype=application/vnd.ms-fontobject&name=fonts/[name].[ext]'
       }
     ]
   },
@@ -51,6 +76,9 @@ module.exports = {
     return [
       require('postcss-import')({addDependencyTo: webpack}),
       require('precss')(),
+      require('postcss-image-sizes')({assetsPath: './source/assets/images'}),
+      require('postcss-at2x')(),
+      require("postcss-calc")({mediaQueries: true}),
       require('autoprefixer')()
     ]
   },
