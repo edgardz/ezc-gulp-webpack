@@ -30,7 +30,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: "style!css?sourceMap&modules&importLoaders=1&localIdentName=[folder]_[local]_[hash:base64:5]!postcss"
+        loader: "style!css?sourceMap&modules&importLoaders=1&localIdentName=[path][hash:base64:5]!postcss"
       },
       {
         test: /\.tsx?$/,

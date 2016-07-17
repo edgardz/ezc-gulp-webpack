@@ -2,9 +2,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import { routerReducer, routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
-
-// not typed imports
-const ReduxPromise = require('redux-promise');
+const ReduxPromise = require('redux-promise'); // not typed import
 
 
 const rootReducer = combineReducers({

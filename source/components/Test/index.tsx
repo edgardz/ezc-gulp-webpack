@@ -7,11 +7,13 @@ export interface Props {
   // framework: string;
 }
 
-export class App extends React.Component<Props, {}> {
+export class Test extends React.Component<Props, {}> {
   render() {
     return (
       <div className={css.root}>
-        {this.props.children}
+        <h1>Test Component</h1>
+        <div className="imageTest"></div>
+        <div className={css.inlineImageTest}></div>
       </div>
      );
   }
