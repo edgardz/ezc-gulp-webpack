@@ -9,7 +9,7 @@ export class Contact extends React.Component<Props, {}> {
   render() {
     return (
       <div className={css.root}>
-        Contact
+        <h1>Contact</h1>
         <Link to='/'>Landing</Link>
       </div>
      );

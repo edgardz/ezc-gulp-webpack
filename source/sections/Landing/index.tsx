@@ -12,9 +12,9 @@ export class Landing extends React.Component<Props, {}> {
   render() {
     return (
       <div className={css.root}>
-        Landing
-        <Test />
+        <h1>Landing</h1>
         <Link to='/contact'>Contact</Link>
+        <Test />
       </div>
      );
   }
