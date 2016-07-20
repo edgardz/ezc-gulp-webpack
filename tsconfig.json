@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "outDir": "./build/",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "declaration": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es6",
+    "jsx": "react"
+  },
+  "files": [
+    "source/index.tsx",
+    "typings/index.d.ts"
+  ]
+}

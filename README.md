@@ -1,1 +1,1 @@
-# ezc-gulp-webpack
+npm install
