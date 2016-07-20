@@ -20,6 +20,10 @@
   "bugs": {
     "url": "https://github.com/edgardz/ezc-gulp-webpack-react/issue"
   },
+  "engines": {
+    "node" : ">=5.10.1",
+    "npm" : "~3.8.3"
+  },
   "homepage": "https://github.com/edgardz/ezc-gulp-webpack-react#readme",
   "devDependencies": {
     "autoprefixer": "^6.3.7",
