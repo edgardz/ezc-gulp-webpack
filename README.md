@@ -1,1 +1,1 @@
-npm install
+# ezc-webpack-angular2

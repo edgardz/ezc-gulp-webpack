@@ -1,5 +1,3 @@
-/// <reference path="index.d.ts" />
-
 require('./styles/global.css');
 
 import * as React from 'react';

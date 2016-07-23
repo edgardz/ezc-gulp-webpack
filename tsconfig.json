@@ -1,16 +1,13 @@
 {
   "compilerOptions": {
-    "outDir": "./build/",
+    "target": "es6",
+    "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
-    "declaration": true,
-    "noImplicitAny": true,
-    "module": "commonjs",
-    "target": "es6",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "suppressImplicitAnyIndexErrors": true,
     "jsx": "react"
-  },
-  "files": [
-    "source/index.tsx",
-    "typings/index.d.ts"
-  ]
+  }
 }

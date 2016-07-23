@@ -1,30 +1,25 @@
 {
-  "name": "ezc-gulp-webpack-react",
+  "name": "angular2-webpack",
   "version": "0.0.1",
-  "description": "Webpack, React and Typescript",
-  "main": "source/index.tsx",
+  "description": "A webpack starter for angular 2",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack-server": "open http://0.0.0.0:8080; webpack-dev-server --config webpack.config.development.js --progress --colors ",
-    "webpack-build": "BABEL_ENV=production webpack -p --config webpack.config.production.js",
-    "start": "npm run webpack-server",
-    "build": "npm run webpack-build; http-server ./build --cors -c-1 -o",
+    "start": "webpack-dev-server --config config/webpack.dev.js --progress --colors --inline --hot",
+    "build": "rimraf build && webpack --config config/webpack.prod.js --progress --profile --bail && http-server ./build --cors -c-1 -o",
     "postinstall": "typings install"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/edgardz/ezc-gulp-webpack-react.git"
-  },
-  "author": "Edgard Zavarezzi",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/edgardz/ezc-gulp-webpack-react/issue"
+  "dependencies": {
+    "axios": "^0.13.1",
+    "history": "^3.0.0",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.5.2",
+    "react-router-redux": "^4.0.5",
+    "redux": "^3.5.2",
+    "redux-promise": "^0.5.3",
+    "core-js": "^2.4.0"
   },
-  "engines": {
-    "node" : ">=5.10.1",
-    "npm" : "~3.8.3"
-  },
-  "homepage": "https://github.com/edgardz/ezc-gulp-webpack-react#readme",
   "devDependencies": {
     "autoprefixer": "^6.3.7",
     "autoprefixer-loader": "^3.2.0",
@@ -47,6 +42,7 @@
     "precss": "^1.4.0",
     "react-hot-loader": "^1.3.0",
     "react-transform-hmr": "^1.0.4",
+    "rimraf": "^2.5.2",
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.13.1",
     "ts-loader": "0.8.1",
@@ -54,17 +50,7 @@
     "typings": "^1.3.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
-  },
-  "dependencies": {
-    "axios": "^0.13.1",
-    "history": "^3.0.0",
-    "react": "^15.2.1",
-    "react-dom": "^15.2.1",
-    "react-redux": "^4.4.5",
-    "react-router": "^2.5.2",
-    "react-router-redux": "^4.0.5",
-    "redux": "^3.5.2",
-    "redux-promise": "^0.5.3"
+    "webpack-dev-server": "^1.14.1",
+    "webpack-merge": "^0.14.0"
   }
 }

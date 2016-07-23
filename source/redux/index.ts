@@ -12,8 +12,8 @@ const rootReducer = combineReducers({
 const enhancer = compose(
   applyMiddleware( ReduxPromise ),
   applyMiddleware(routerMiddleware(browserHistory)),
-  window.devToolsExtension
-    ? window.devToolsExtension()
+  (<any>window).devToolsExtension
+    ? (<any>window).devToolsExtension()
     : f => f
 );
 
