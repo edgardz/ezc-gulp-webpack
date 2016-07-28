@@ -1,1 +1,1 @@
-# ezc-webpack-angular2
+# ezc-webpack-react
