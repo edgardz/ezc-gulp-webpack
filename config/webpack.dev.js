@@ -10,7 +10,7 @@ module.exports = webpackMerge(commonConfig, {
   devtool: 'source-map',
 
   output: {
-    publicPath: 'http://0.0.0.0:8080/',
+    publicPath: '/',
     filename: '[name].js',
     chunkFilename: '[id].chunk.js'
   },
@@ -19,18 +19,27 @@ module.exports = webpackMerge(commonConfig, {
     loaders: [
       {
         test: /\.tsx?$/,
+        exclude: /node_modules/,
         loaders: ['babel','ts']
       },
       {
-        test: /\.html$/,
-        loader: 'html'
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loaders: ['babel']
+      },
+      {
+        test: /\.(html|hbs)$/,
+        exclude: /node_modules/,
+        loader: 'handlebars'
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-        loader: 'file?name=assets/[name].[hash].[ext]'
+        exclude: /node_modules/,
+        loader: 'url?name=assets/[name].[hash].[ext]'
       },
       {
         test: /\.css$/,
+        exclude: /node_modules/,
         loader: 'style!css?sourceMap&modules&importLoaders=1!postcss'
       }
     ]

@@ -4,7 +4,7 @@
   "description": "A webpack starter for angular 2",
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.dev.js --progress --colors --inline --hot",
-    "build": "rimraf build && webpack --config config/webpack.prod.js --progress --profile --bail && http-server ./build --cors -c-1 -o",
+    "build": "npm version patch && rimraf build && webpack --config config/webpack.prod.js --progress --profile --bail && http-server ./build --cors -c-1 -o",
     "postinstall": "typings install"
   },
   "license": "MIT",
@@ -31,9 +31,12 @@
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
+    "handlebars": "^4.0.5",
+    "handlebars-loader": "^1.3.0",
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.22.0",
     "http-server": "^0.9.0",
+    "lost": "^7.0.3",
     "postcss-at2x": "^2.0.0",
     "postcss-calc": "^5.3.0",
     "postcss-image-sizes": "0.0.5",

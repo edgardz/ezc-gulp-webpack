@@ -19,18 +19,27 @@ module.exports = webpackMerge(commonConfig, {
     loaders: [
       {
         test: /\.tsx?$/,
+        exclude: /node_modules/,
         loaders: ['babel','ts']
       },
       {
-        test: /\.html$/,
-        loader: 'html'
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loaders: ['babel']
+      },
+      {
+        test: /\.(html|hbs)$/,
+        exclude: /node_modules/,
+        loader: 'handlebars'
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+        exclude: /node_modules/,
         loader: 'file?name=assets/[name].[hash].[ext]'
       },
       {
         test: /\.css$/,
+        exclude: /node_modules/,
         loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1!postcss')
       }
     ]
