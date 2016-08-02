@@ -3,7 +3,10 @@ import { routerReducer, routerMiddleware, syncHistoryWithStore } from 'react-rou
 import { browserHistory } from 'react-router';
 import ReduxPromise from 'redux-promise';
 
+import platform from './reducers/platform';
+
 const rootReducer = combineReducers({
+  platform,
   routing: routerReducer
 });
 

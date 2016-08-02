@@ -1,0 +1,3 @@
+export default {
+  REFRESH_PLATFORM:  'REFRESH_PLATFORM'
+}
