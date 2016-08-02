@@ -1,9 +1,7 @@
-'use strict';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import { routerReducer, routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
-const ReduxPromise = require('redux-promise'); // not typed import
-
+import ReduxPromise from 'redux-promise';
 
 const rootReducer = combineReducers({
   routing: routerReducer
@@ -12,8 +10,8 @@ const rootReducer = combineReducers({
 const enhancer = compose(
   applyMiddleware( ReduxPromise ),
   applyMiddleware(routerMiddleware(browserHistory)),
-  (<any>window).devToolsExtension
-    ? (<any>window).devToolsExtension()
+  window.devToolsExtension
+    ? window.devToolsExtension()
     : f => f
 );
 

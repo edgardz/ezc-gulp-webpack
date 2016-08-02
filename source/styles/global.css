@@ -78,9 +78,14 @@
     position: fixed;
     z-index: 999;
     bottom: 0;
-    right: 0;
+    right: -155px;
     padding: 3px 5px;
-    background: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.2);
+    transition: right 0.5s;
+
+    &:hover {
+      right: 0;
+    }
   }
 
 }

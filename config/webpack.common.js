@@ -6,13 +6,13 @@ var pkg               = require('../package.json');
 
 module.exports = {
   entry: {
-    'polyfills':  './source/polyfills.ts',
-    'vendor':     './source/vendor.ts',
-    'app':        './source/main.tsx'
+    'polyfills':  './source/polyfills.js',
+    'vendor':     './source/vendor.js',
+    'app':        './source/main.js'
   },
 
   resolve: {
-    extensions: ['', '.js', '.ts', '.tsx']
+    extensions: ['', '.js']
   },
 
   postcss: function (webpack) {
@@ -34,7 +34,7 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       template: 'source/index.html',
-      version: 'v' + pkg.version + '&nbsp;&nbsp;⏱&nbsp;&nbsp;&nbsp;' + new Date().toGMTString()
+      version: 'v' + pkg.version + '&nbsp;&nbsp;→&nbsp;&nbsp;&nbsp;' + new Date().toGMTString()
     })
   ]
 };

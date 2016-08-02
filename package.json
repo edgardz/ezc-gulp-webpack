@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "description": "A webpack starter for angular 2",
   "scripts": {
-    "start": "webpack-dev-server --config config/webpack.dev.js --progress --colors --inline --hot",
-    "build": "npm version patch && rimraf build && webpack --config config/webpack.prod.js --progress --profile --bail && http-server ./build --cors -c-1 -o",
-    "postinstall": "typings install"
+    "start": "webpack-dev-server --config ./config/webpack.dev.js --progress --colors --inline --hot",
+    "build": "npm version patch && rimraf build && webpack --config ./config/webpack.prod.js --progress --profile --bail",
+    "serve:build": "http-server ./build --cors -c-1 -o"
   },
   "license": "MIT",
   "dependencies": {
@@ -23,10 +23,14 @@
   "devDependencies": {
     "autoprefixer": "^6.3.7",
     "autoprefixer-loader": "^3.2.0",
+    "babel-cli": "^6.11.4",
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
     "babel-plugin-react-transform": "^2.0.2",
     "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-react-optimize": "^1.0.1",
+    "babel-preset-stage-1": "^6.5.0",
     "clean-webpack-plugin": "^0.1.9",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
@@ -48,9 +52,6 @@
     "rimraf": "^2.5.2",
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.13.1",
-    "ts-loader": "0.8.1",
-    "typescript": "^1.8.10",
-    "typings": "^1.3.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1",

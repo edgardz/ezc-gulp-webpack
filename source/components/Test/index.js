@@ -1,13 +1,8 @@
-const css = require('./style.css');
+import React from "react";
 
-import * as React from "react";
+import css from './style.css';
 
-export interface Props {
-  // compiler: string;
-  // framework: string;
-}
-
-export class Test extends React.Component<Props, {}> {
+export default class Test extends React.Component {
   render() {
     return (
       <div className={css.root}>

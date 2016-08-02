@@ -18,11 +18,6 @@ module.exports = webpackMerge(commonConfig, {
   module: {
     loaders: [
       {
-        test: /\.tsx?$/,
-        exclude: /node_modules/,
-        loaders: ['babel','ts']
-      },
-      {
         test: /\.js$/,
         exclude: /node_modules/,
         loaders: ['babel']

@@ -1,14 +1,11 @@
-const css = require('./style.css');
-
-import * as React from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 
-import { Test } from '../../components/Test';
+import css from './style.css';
 
+import Test from '../../components/Test';
 
-export interface Props {}
-
-export class Landing extends React.Component<Props, {}> {
+export default class Landing extends React.Component {
   render() {
     return (
       <div className={css.root}>
