@@ -5,11 +5,6 @@ var helpers           = require('./helpers');
 var pkg               = require('../package.json');
 
 module.exports = {
-  entry: {
-    'polyfills':  './source/polyfills.js',
-    'vendor':     './source/vendor.js',
-    'app':        './source/main.js'
-  },
 
   resolve: {
     extensions: ['', '.js']
