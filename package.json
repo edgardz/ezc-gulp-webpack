@@ -1,6 +1,6 @@
 {
   "name": "ezc-webpack-react",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A webpack starter for React",
   "scripts": {
     "start": "webpack-dev-server --config ./config/webpack.dev.js --progress --colors --inline --hot",
