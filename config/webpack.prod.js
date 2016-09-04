@@ -1,12 +1,12 @@
 var webpack           = require('webpack');
-var webpackMerge      = require('webpack-merge');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var commonConfig      = require('./webpack.common.js');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var helpers           = require('./helpers');
+var pkg               = require('../package.json');
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
-module.exports = webpackMerge(commonConfig, {
+module.exports = {
 
   entry: {
     'polyfills':  './source/polyfills.js',
@@ -21,10 +21,14 @@ module.exports = webpackMerge(commonConfig, {
     chunkFilename: '[id].[hash].chunk.js'
   },
 
+  resolve: {
+    extensions: ['', '.js']
+  },
+
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         loaders: ['babel']
       },
@@ -46,16 +50,33 @@ module.exports = webpackMerge(commonConfig, {
     ]
   },
 
+  postcss: function (webpack) {
+    return [
+      require('postcss-import')({addDependencyTo: webpack}),
+      require('precss')(),
+      require('postcss-image-sizes')({assetsPath: './source/assets/images'}),
+      require('postcss-at2x')(),
+      require("postcss-calc")({mediaQueries: true}),
+      require("lost")(),
+      require('autoprefixer')()
+    ]
+  },
+
   htmlLoader: {
-    minimize: false // workaround for ng2
+    minimize: false
   },
 
   plugins: [
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: false
+    new webpack.optimize.UglifyJsPlugin({sourceMap: false}),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: ['app', 'vendor', 'polyfills']
     }),
+    new HtmlWebpackPlugin({
+      template: 'source/index.html',
+      version: 'v' + pkg.version + '&nbsp;&nbsp;→&nbsp;&nbsp;&nbsp;' + new Date().toGMTString()
+    })
     new ExtractTextPlugin('[name].[hash].css'),
     new webpack.DefinePlugin({
       'process.env': {
@@ -65,4 +86,4 @@ module.exports = webpackMerge(commonConfig, {
       }
     })
   ]
-});
+};

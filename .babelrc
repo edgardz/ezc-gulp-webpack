@@ -1,21 +1,7 @@
 {
-  "presets": [
-    "es2015",
-    "react",
-    "react-optimize",
-    "stage-1"
-  ],
-  "env": {
-    "development": {
-      "plugins": [
-        ["react-transform", {
-          "transforms": [{
-            "transform": "react-transform-hmr",
-            "imports": ["react"],
-            "locals": ["module"]
-          }]
-        }]
-      ]
-    }
-  }
+  "sourceMaps": true,
+  "presets": ["react", "es2015", "react-optimize", "stage-1"],
+  "plugins": [
+    "react-hot-loader/babel"
+  ]
 }

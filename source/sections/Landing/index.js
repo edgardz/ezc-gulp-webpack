@@ -6,6 +6,12 @@ import css from './style.css';
 import Test from '../../components/Test';
 
 export default class Landing extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
     return (
       <div className={css.root}>

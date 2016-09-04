@@ -9,6 +9,11 @@ import css from './style.css';
 
 class App extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   componentWillMount() {
     window.addEventListener('resize', this.props.doRefreshPlatform);
   }

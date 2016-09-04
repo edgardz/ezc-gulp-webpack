@@ -1,25 +1,26 @@
 import './styles/global.css';
 
+import 'react-hot-loader/patch';
+
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute } from 'react-router';
-import { Provider } from 'react-redux';
+import { render } from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
+import Root from './root';
 
-import { store, history } from './redux';
+render((
+  <AppContainer>
+    <Root />
+  </AppContainer>
+), document.getElementById('app'));
 
-import App      from './sections/App';
-import Landing  from './sections/Landing';
-import Contact  from './sections/Contact';
+if (module.hot) {
+  module.hot.accept('./root', () => {
+    const NextRoot = require('./root').default;
 
-ReactDOM.render(
-  <Provider store={store}>
-    <Router history={history}>
-      <Route path="/" component={App}>
-        <IndexRoute component={Landing} />
-        <Route path="contact" component={Contact}>
-        </Route>
-      </Route>
-    </Router>
-  </Provider>,
-  document.getElementById('app')
-);
+    render((
+      <AppContainer>
+        <NextRoot />
+      </AppContainer>
+    ), document.getElementById('app'));
+  })
+}
