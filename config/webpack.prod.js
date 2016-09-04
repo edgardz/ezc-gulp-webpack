@@ -76,7 +76,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'source/index.html',
       version: 'v' + pkg.version + '&nbsp;&nbsp;→&nbsp;&nbsp;&nbsp;' + new Date().toGMTString()
-    })
+    }),
     new ExtractTextPlugin('[name].[hash].css'),
     new webpack.DefinePlugin({
       'process.env': {
